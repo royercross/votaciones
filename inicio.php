@@ -1,6 +1,8 @@
-<?php
-	$error=false;
+<?php 
+    $error=false; 
+    include_once "FIMAZConfig.php";
 ?>
+
 <?php include("encabezado.php"); ?>
 <div class="login panel">	
       <form class="form-signin" method="post" action="">
