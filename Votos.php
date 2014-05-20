@@ -23,6 +23,15 @@ Class Votos extends FIMAZConfig{
 
   }
 
+  function guardaFB($fbid){
+    if(isset($_SESSION['me']['id']) && $_SESSION['me']['id']>=1){
+      $id_alumno = $_SESSION['me']['id'];
+      $this->db->query("UPDATE alumnos SET fbid='$fbid' WHERE id_alumno='$id_alumno';");
+      return true;
+    }
+    return false;
+  }
+
   function getUser(){
 
   }
