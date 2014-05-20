@@ -1,4 +1,4 @@
-<?php require_once("check.php"); ?>
+<?php /*require_once("check.php");*/ ?>
 <?php /*require_once("php/acciones_modulo_alumnos.php");*/ ?>
 <?php require_once("encabezado_interior.php"); ?>
 <?php require_once("menu.php"); ?>
