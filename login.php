@@ -16,6 +16,9 @@ if(isset($_POST['user'])){
 		if($votos->login($input['user'], $input['pass'])){
 			$me = $votos->me();
 			//print_r($me);			
+			session_start();
+			$_SESSION['token']="38f24e6d23cd0ba120f905151e91c20769f0c9e5149c111591f666f1503212e6";
+			$_SESSION['id_alumno']=$me->id_alumno;
 			header("Location: inicio.php");
 		}else{
 			$error=1;
