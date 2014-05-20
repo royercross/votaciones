@@ -77,22 +77,13 @@
     
 <script>
 	$(document).ready(function(){
-
     $("#tabla").dataTable({
       "oLanguage": {
         "sUrl": "lib/languages/es_MX.txt"
       },
       iDisplayLength: 20,
       aaSorting:[]
-    });
-
-		$('#btnReset').click(function(){
-				bootbox.confirm("¿Seguro que desea actualizar los datos solicitados por el alumno?",function(resultado){
-					if(resultado){
-						$('#form-resetpass').submit();
-					}
-				});
-		});				
+    });	
 	});
 
   function eliminar(id){    
