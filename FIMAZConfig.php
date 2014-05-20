@@ -3,6 +3,8 @@ session_start();
 include_once "includes/shared/ez_sql_core.php";
 include_once "includes/mysql/ez_sql_mysql.php";
 
+$ruta="/votaciones/";
+
 Class FIMAZConfig{
 	public $db_user = 'fimaz';
 	public $db_password = 'be9u5etej';

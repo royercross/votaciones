@@ -15,9 +15,10 @@ if(isset($_POST['user'])){
 
 		if($votos->login($input['user'], $input['pass'])){
 			$me = $votos->me();
-			print_r($me);			
+			//print_r($me);			
+			header("Location: inicio.php")
 		}else{
-			$error=2;
+			$error=1;
 		}
 
 	}else{
