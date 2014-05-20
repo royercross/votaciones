@@ -8,7 +8,7 @@
 ?>
 <?php include("encabezado.php"); ?>
 <div class="perfil">
-    <p id="fblogin">Subir Fotografia desde Facebook</p>
+    <img src="imagenes/fblogin.png" id="fblogin" />
     FBID: <input type="text" id="fbid" />
 </div>
 <?php include("piepagina.php"); ?>
