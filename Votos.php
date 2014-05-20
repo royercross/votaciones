@@ -59,8 +59,8 @@ Class Votos extends FIMAZConfig{
   }
 
   function masVotados(){
-    $results = $this->db->get_results("SELECT count(id_voto) as total FROM votos a INNER JOIN alumnos b ON a.id_votante=b.id_alumno GROUP BY id_votado ORDER BY total DESC");
-    return ($results['0']);
+    $results = $this->db->get_results("SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno FROM votos a INNER JOIN alumnos b ON a.id_votante=b.id_alumno GROUP BY id_votado ORDER BY total DESC");
+    return ($results);
   }
   
   function getAvatar($email){
