@@ -9,8 +9,10 @@
   <section class="top-bar-section">
     <ul class="left">
       <li><a href="<?=$ruta;?>inicio.php">Inicio</a></li>    
-      <li><a href="<?=$ruta;?>modulo_alumnos.php">Elegir Votante</a></li>    
-      <li><a href="<?=$ruta;?>logout.php">Salir</a></li>                
+      <li><a href="<?=$ruta;?>modulo_alumnos.php">Votar</a></li>                  
+    </ul>
+    <ul class="right">
+      <li><a href="<?=$ruta;?>logout.php">Salir</a></li>
     </ul>
   </section>
 </div>

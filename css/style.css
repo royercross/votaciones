@@ -25,6 +25,7 @@ header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 .tabla-acciones a{font-size:25px;}
 
 .dataTables_wrapper tbody tr:hover{background-color:#90C9E2;}
+.dataTables_wrapper table{width: 100%;}
 
 .votantes-wrapper{padding-top: 30px;}
 .ganador{width: 49%;display: inline-block;margin-bottom: 20px;}
