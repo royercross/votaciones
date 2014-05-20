@@ -15,7 +15,7 @@
         require_once("php/mysqlpdo.php");  
         $mysql = new DBMannager();    
         $mysql->connect();    
-        $query="SELECT a.*,b.rkey FROM alumnos a LEFT JOIN c_activos b ON a.id_alumno=b.id_alumno WHERE a.id_facultad=? AND a.status=1 ORDER BY a.id_alumno DESC";   
+        $query="SELECT a.* FROM alumnos a WHERE a.status=1 AND (a.id_carrera=1 OR a.id_carrera=2) ORDER BY a.id_alumno";   
         $mysql->execute($query,array($_SESSION['id_facultad']));      
         if($mysql->count() < 1){    
       ?>      
