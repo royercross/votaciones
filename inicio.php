@@ -1,6 +1,6 @@
 <?php 
     $error=false; 
-    include_once "FIMAZConfig.php";
+    include_once "check.php";
     include_once "Votos.php";
     $votos = new Votos();
     $masVotados = $votos->masVotados();

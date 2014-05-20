@@ -1,6 +1,5 @@
-<?php /*require_once("check.php");*/ ?>
+<?php require_once("check.php"); ?>
 <?php require_once("acciones_modulo_alumnos.php"); ?>    
-<?php include_once "FIMAZConfig.php"; ?>
 <?php require_once("encabezado_interior.php"); ?>
 <?php require_once("menu.php"); ?>
 

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "includes/shared/ez_sql_core.php";
 include_once "includes/mysql/ez_sql_mysql.php";
 
