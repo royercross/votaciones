@@ -1,4 +1,5 @@
 <?php
+
 Class Votos extends FIMAZConfig{
 
   function __construct(){
@@ -15,8 +16,7 @@ Class Votos extends FIMAZConfig{
       $_SESSION['me']['id'] = $results['0']->id_alumno;
       return true;
     
-    }else{
-    
+    }else{      
       return false;
     
     }
