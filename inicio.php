@@ -2,7 +2,7 @@
 	$error=false;
 ?>
 <?php include("encabezado.php"); ?>
-<div class="login panel">	
+<div class="inicio">	
       <form class="form-signin" method="post" action="">
     	<?php  if($error==1){ ?>
         	<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>El usuario o contraseña no es valido.</div>

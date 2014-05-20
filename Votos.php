@@ -54,7 +54,12 @@ Class Votos extends FIMAZConfig{
   }
 
   function show($id){
-  	$results = $this->db->get_results("SELECT * FROM alumnos WHERE id='$id'");
+    $results = $this->db->get_results("SELECT * FROM alumnos WHERE id='$id'");
+    return ($results['0']);
+  }
+
+  function masVotados(){
+    $results = $this->db->get_results("SELECT count(id_voto) as total FROM votos a INNER JOIN alumnos b ON a.id_votante=b.id_alumno GROUP BY id_votado ORDER BY total DESC");
     return ($results['0']);
   }
   
