@@ -21,7 +21,6 @@
       ?>      
         <div class="contenido">    
 
-          <a href="#" class="button"  id="btnAgregar">Agregar Alumno</a>
           <?php if(isset($_SESSION['mensaje'])){?>
           <div class="alert-box success alert-hide"><?=$_SESSION['mensaje'];?></div>       
           <?php unset($_SESSION['mensaje']);} ?>
@@ -33,39 +32,26 @@
       <div class="contenido">
         <?php if(isset($_SESSION['mensaje'])){?>
         <div class="alert-box success alert-hide"><?=$_SESSION['mensaje'];?></div>       
-        <?php unset($_SESSION['mensaje']);} ?>      
-        <a href="#" class="button"  id="btnAgregar">Agregar Alumno</a>
+        <?php unset($_SESSION['mensaje']);} ?>              
       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="tabla">    
             <thead>
-                <tr>
-                      <th>Generación</th>
+                <tr>                      
                       <th>Nombre</th>
                       <th>Apellido Paterno</th>
-                      <th>Apellido Materno</th>
-                      <th>Telefono</th>
-                      <th>Celular</th>
-                      <th>E-mail</th>
-                      <th>cuestionario 1</th>
                       <th>Opciones</th>
                   </tr>
               </thead>
               <tbody>
                 <?php while($alumno=$mysql->getRow()){ ?>
-                <tr>
-                      <td><?=$alumno['generacion'];?></td>
+                <tr>                      
                       <td><?=$alumno['nombre'];?></td>
                       <td><?=$alumno['apellido_paterno'];?></td>
-                      <td><?=$alumno['apellido_materno'];?></td>                    
-                      <td><?=$alumno['telefono_casa'];?></td>                    
-                      <td><?=$alumno['telefono_celular'];?></td>
-                      <td><?=$alumno['email'];?></td>
-                      <td><a href="http://segegresados.maz.uasnet.mx/quiz/pise.php?q=<?=$alumno['rkey'];?>" target="_blank">http://segegresados.maz.uasnet.mx/cuestionarios/pise.php?q=<?=$alumno['rkey'];?></a></td>   
                       <td class="tabla-acciones">
                        <!--<a href="#" class="icon-edit" onclick="ver(<?=$alumno['id_alumno'];?>);return false;" style="margin-right:10px;"></a>-->
                         <a href="#" class="fi-x" onclick="eliminar(<?=$alumno['id_alumno'];?>);return false;" ></a>
                         <form style="display:none;" name="form<?=$alumno['id_alumno'];?>" id="form<?=$alumno['id_alumno'];?>" method="post">
                           <input type="hidden" name="id_alumno" value="<?=$alumno['id_alumno'];?>" />
-                          <input type="hidden" name="accion" value="eliminar" />                            
+                          <input type="hidden" name="accion" value="votar" />                            
                         </form>
                     </td>
                   </tr> 
@@ -90,16 +76,6 @@
     
 <script>
 	$(document).ready(function(){
-		/* Table initialisation */
-    /*
-		$('#example').dataTable( {
-			"sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
-			"sPaginationType": "bootstrap",
-			"oLanguage": {
-				"sUrl": "../js/languages/es_MX.txt"
-			}
-		} );
-    */
 
     $("#tabla").dataTable({
       "oLanguage": {
@@ -107,14 +83,6 @@
       },
       iDisplayLength: 50,
       aaSorting:[]
-    });
-  
-    $('#btnAgregar').click(function(){  
-      $.get("php/form_alumnos.php", function(html){   
-          $("#modal-wrapper").html(html);
-          $('#modal-wrapper').foundation('reveal', 'open');
-          $('#modal-wrapper').foundation({bindings:'events'});
-      });
     });
 
 		$('#btnReset').click(function(){
