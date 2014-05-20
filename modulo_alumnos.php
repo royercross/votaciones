@@ -1,5 +1,5 @@
 <?php /*require_once("check.php");*/ ?>
-<?php /*require_once("php/acciones_modulo_alumnos.php");*/ ?>    
+<?php require_once("acciones_modulo_alumnos.php"); ?>    
 <?php include_once "FIMAZConfig.php"; ?>
 <?php require_once("encabezado_interior.php"); ?>
 <?php require_once("menu.php"); ?>
@@ -81,13 +81,13 @@
       "oLanguage": {
         "sUrl": "lib/languages/es_MX.txt"
       },
-      iDisplayLength: 20,
+      iDisplayLength: 10,
       aaSorting:[]
     });	
 	});
 
-  function eliminar(id){    
-    if(confirm("¿Seguro que deseas eliminar al alumno seleccionado?")){    
+  function votar(id){    
+    if(confirm("¿Seguro que deseas votar por ??? ?")){    
         $('#form'+id).submit();
     }   
   }
