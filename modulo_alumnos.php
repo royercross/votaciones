@@ -1,5 +1,6 @@
 <?php /*require_once("check.php");*/ ?>
-<?php /*require_once("php/acciones_modulo_alumnos.php");*/ ?>
+<?php /*require_once("php/acciones_modulo_alumnos.php");*/ ?>    
+<?php include_once "FIMAZConfig.php"; ?>
 <?php require_once("encabezado_interior.php"); ?>
 <?php require_once("menu.php"); ?>
 
@@ -48,7 +49,7 @@
                       <td><?=$alumno['apellido_paterno'];?></td>
                       <td class="tabla-acciones">
                        <!--<a href="#" class="icon-edit" onclick="ver(<?=$alumno['id_alumno'];?>);return false;" style="margin-right:10px;"></a>-->
-                        <a href="#" class="fi-x" onclick="eliminar(<?=$alumno['id_alumno'];?>);return false;" ></a>
+                        <a href="#" class="" onclick="votar(<?=$alumno['id_alumno'];?>);return false;" >VOTAR</a>
                         <form style="display:none;" name="form<?=$alumno['id_alumno'];?>" id="form<?=$alumno['id_alumno'];?>" method="post">
                           <input type="hidden" name="id_alumno" value="<?=$alumno['id_alumno'];?>" />
                           <input type="hidden" name="accion" value="votar" />                            
@@ -79,9 +80,9 @@
 
     $("#tabla").dataTable({
       "oLanguage": {
-        "sUrl": "../lib/languages/es_MX.txt"
+        "sUrl": "lib/languages/es_MX.txt"
       },
-      iDisplayLength: 50,
+      iDisplayLength: 20,
       aaSorting:[]
     });
 
@@ -100,4 +101,4 @@
     }   
   }
 </script>
-<?php include("../piepagina.php"); ?>
+<?php include("piepagina.php"); ?>
