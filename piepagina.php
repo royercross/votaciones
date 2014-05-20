@@ -16,15 +16,14 @@
 
       var loginRef = new Firebase('https://fimazestudiantes.firebaseIO.com');
       var auth = new FirebaseSimpleLogin(loginRef, function(error, user) {
-      if(error){
-          console.log(error);
-          aler('Ocurrio un error inesperado.');
+        if(error){
+            console.log(error);
+            aler('Ocurrio un error inesperado.');
         }else if(user) {
-          $('#fbid').val(user.id);
-  //      $('#fbid').val('https://graph.facebook.com/v2.0/'+user.id+'/picture?type=square');
-          console.log('User ID: ' + user.id + ' User Name:' + user.displayName + ' Provider: ' + user.provider);
+            $('#fbid').val(user.id);
+    //      $('#fbid').val('https://graph.facebook.com/v2.0/'+user.id+'/picture?type=square');
         }else{
-          console.log('El usuario no esta iniciado');
+            console.log('El usuario no esta iniciado');
         }
       });
 
