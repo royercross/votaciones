@@ -1,13 +1,13 @@
 <?php $error=false; ?>
 <?php include("login.php") ?>
-<?php include("encabezado.php"); echo $error;?>
+<?php include("encabezado.php"); ?>
 <div class="login panel">	
       <form class="form-signin" method="post" action="">
     	<?php  if($error==1){ ?>
         	<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>El usuario o contraseña no es valido.</div>
         <?php } ?> 
     	<?php  if($error==2){ ?>
-        	<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>El captcha introducido no es valido.</div>
+        	<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>El usuario o contraseña no es valido.</div>
         <?php } ?>               
         <h2 class="form-signin-heading">Acceso de Alumnos</h2>
         <!-- Text input-->

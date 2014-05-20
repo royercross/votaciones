@@ -1,10 +1,10 @@
     
     <?php if(!isset($loadScripts) || $loadScripts){ ?>
-    <script src="lib/jquery.js"></script>
-    <script src="lib/foundation.min.js"></script>
-    <script src="lib/foundation.abide.js"></script>
-    <script src="lib/foundation.alert.js"></script>
-    <script src="lib/foundation.tabs.js"></script>
+    <script src="<?=$ruta;?>lib/jquery.js"></script>
+    <script src="<?=$ruta;?>lib/foundation.min.js"></script>
+    <script src="<?=$ruta;?>lib/foundation.abide.js"></script>
+    <script src="<?=$ruta;?>lib/foundation.alert.js"></script>
+    <script src="<?=$ruta;?>lib/foundation.tabs.js"></script>
     <?php } ?>
     <script>
       $(document).foundation();

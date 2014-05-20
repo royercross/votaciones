@@ -11,23 +11,16 @@ if(isset($_POST['user'])){
 
 	$me = $votos->me();
 
+	if(isset($input['user']) && isset($input['pass'])){
 
-	if(!$me){
-
-		if(isset($input['user']) && isset($input['pass'])){
-
-			if($votos->login($input['user'], $input['pass'])){
-				$me = $votos->me();
-				//print_r($me);			
-			}
-
+		if($votos->login($input['user'], $input['pass'])){
+			$me = $votos->me();
+			print_r($me);			
 		}else{
-			$error=1;
+			$error=2;
 		}
 
 	}else{
-		
-		//echo $me->id_alumno . ' ' . $me->nombre . ' ' . $me->apellido_paterno . ' ' . $me->apellido_materno;
-
+		$error=1;
 	}
 }
