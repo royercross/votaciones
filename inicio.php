@@ -15,8 +15,9 @@
     //print_r($masVotados);
 ?>
 
-<?php include("encabezado.php"); ?>
-<section class="columns">
+<?php include("encabezado_interior.php"); ?>
+<?php include("menu.php"); ?>
+<section class="columns votantes-wrapper">
     <?php
         $cont=0;
         foreach($masVotados as $votante){
@@ -27,7 +28,7 @@
     <?php
             }
     ?>
-        <div class="granador">
+        <div class="ganador">
             <img src="imagenes/facebook.jpg" alt="" />
             <span class="nombre"><?=$nombre_completo;?></span>
         </div>
