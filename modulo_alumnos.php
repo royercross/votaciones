@@ -16,7 +16,7 @@
         $mysql = new DBMannager();    
         $mysql->connect();    
         $query="SELECT a.* FROM alumnos a WHERE a.status=1 AND (a.id_carrera=1 OR a.id_carrera=2) ORDER BY a.id_alumno";   
-        $mysql->execute($query,array($_SESSION['id_facultad']));      
+        $mysql->execute($query);      
         if($mysql->count() < 1){    
       ?>      
         <div class="contenido">    
