@@ -23,16 +23,16 @@ if(isset($_POST['email'])){
 			//Create a new PHPMailer instance
 			$mail = new PHPMailer();
 			$mail->CharSet = 'UTF-8';
-			//$mail->isSMTP();
-			//$mail->SMTPSecure = 'ssl';
+			$mail->isSMTP();
+			$mail->SMTPSecure = 'ssl';
 			//Enable SMTP debugging
 			// 0 = off (for production use)
 			// 1 = client messages
 			// 2 = client and server messages
-			//$mail->SMTPDebug = 1;
+			$mail->SMTPDebug = 1;
 			//Ask for HTML-friendly debug output
 			//$mail->Debugoutput = 'html';
-			//$mail->Host = "smtp.live.com";
+			$mail->Host = "smtp.live.com";
 			//Set the SMTP port number - likely to be 25, 465 or 587
 			$mail->Port = 465;
 			$mail->SMTPAuth = true;
