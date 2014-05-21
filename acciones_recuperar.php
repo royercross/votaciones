@@ -37,7 +37,7 @@ if(isset($_POST['email'])){
 			$mail->Port = 465;
 			$mail->SMTPAuth = true;
 			$mail->Username = "noreply@informaticamazatlan.mx";
-			$mail->Password = "uas123uas";
+			$mail->Password = "123uas123";
 			$email="rogelio.norisc@gmail.com";
 			$mail->setFrom('noreply@informaticamazatlan.mx', 'Facultad de Informática Mazatlán');
 			$mail->addAddress($email, $nombre.' '.$apellido_paterno);
