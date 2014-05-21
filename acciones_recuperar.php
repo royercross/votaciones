@@ -60,7 +60,7 @@ if(isset($_POST['email'])){
 				$error=1;
 				$mensaje_error="Error al enviar el correo, intenta de nuevo mas tarde";
 			} else {
-				$_SESSION['mensaje']="Haz quedado registrado correctamente en las actividades de la Semana Nacional de Ciencia y Tecnología. Hemos enviado un correo de confirmación a la siguiente cuenta: ".$email." Recuerda revisar el correo no deseado.";
+				$completado=1;
 			}		
 		/*}else{
 				$_SESSION['mensaje_tipo']='error';
