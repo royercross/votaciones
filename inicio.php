@@ -6,7 +6,7 @@
     $mysql = new DBMannager();      
     $mysql->connect();  
 
-    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno WHERE b.sexo='Masculino' GROUP BY id_votado ORDER BY total DESC";   
+    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno WHERE b.sexo='Masculino' GROUP BY id_votado ORDER BY total DESC LIMIT 0,3";   
     $mysql->execute($query);
     $faltantes=0;
     $masvotadosH=$mysql->count();
@@ -25,7 +25,7 @@
         array_push($masVotadosH, array("total" => 0 , "nombre" => "?", "apellido_paterno" => "?", "apellido_materno" => "?"));
     }
 
-    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno WHERE b.sexo='Femenino' GROUP BY id_votado ORDER BY total DESC";   
+    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno WHERE b.sexo='Femenino' GROUP BY id_votado ORDER BY total DESC LIMIT 0,3";   
     $mysql->execute($query);
     $faltantes=0;
     $masvotadosM=$mysql->count();
@@ -43,7 +43,7 @@
     for ($i=0; $i < $faltantes; $i++) { 
         array_push($masVotadosM, array("total" => 0 , "nombre" => "?", "apellido_paterno" => "?", "apellido_materno" => "?"));
     }    
-    //print_r($masVotados);
+    //print_r($masVotadosH);
 ?>
 
 <?php include("encabezado_interior.php"); ?>
