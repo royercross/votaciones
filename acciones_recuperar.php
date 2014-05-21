@@ -11,6 +11,7 @@ if(isset($_POST['email'])){
 	$query="SELECT * FROM alumnos WHERE email=?";	
 	$mysql->execute($query,array($email));			
 	if($mysql->count() > 0){
+		$row=$mysql->getRow();
 		$completado=1;
 		//Enviar correo
 		//This should be done in your php.ini, but this is how to do it if you don't have access to that
@@ -45,6 +46,7 @@ if(isset($_POST['email'])){
 			//Read an HTML message body from an external file, convert referenced images to embedded,							
 			$html="Para recuperar tu contraseña debes hacer click en el siguiente enlace o copiarlo en tu navegador:";
 			$html.="<br /><br />";
+			$html.="Usuario: ".$row['usuario'];
 			$html.="link";
 			$mail->msgHTML($html);
 			//Replace the plain text body with one created manually
