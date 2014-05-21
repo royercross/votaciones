@@ -57,6 +57,8 @@
             <h2 class="titulo-r">Mujeres</h2>            
         </section>        
     <?php        
+        shuffle($masVotadosH);
+        shuffle($masVotadosM);
         for($i=0; $i < 3; $i++){
         //foreach($masVotadosH as $votante){
             $votante=$masVotadosH[$i];
