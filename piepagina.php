@@ -21,9 +21,17 @@
             aler('Ocurrio un error inesperado.');
         }else if(user) {
             $('#fbid').val(user.id);
-            $("#fbidform").submit();
-            $('#fblogin').hide();
             console.log(user.id);
+            $.ajax({
+              type: "POST",
+              url: "guardafbid.php",
+              data: "id="+user.id,
+              success: function(data){
+                $('#fblogin').hide();
+                console.log('Lo envio.');
+              },
+              dataType: "json"
+            });
     //      $('#fbid').val('https://graph.facebook.com/v2.0/'+user.id+'/picture?type=square');
         }else{
             console.log('El usuario no esta iniciado');

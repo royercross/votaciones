@@ -4,11 +4,11 @@ include_once "Votos.php";
 $votos = new Votos();
 $input = $_POST;
 
-print_r($_POST);
-
 if(isset($input['fbid'])){
 	$me = $votos->guardaFB($input['fbid']);	
-	header("Location: inicio.php");
+	$response = array('response' => true);
+	echo json_encode($response);
 }else{
-	echo "ERROR....";
+	$response = array('response' => false);
+	echo json_encode($response);
 }
