@@ -10,6 +10,8 @@
     <ul class="left">
       <li><a href="<?=$ruta;?>inicio.php">Inicio</a></li>    
       <li><a href="<?=$ruta;?>modulo_alumnos.php">Votar</a></li>                  
+      <li><img src="imagenes/fblogin.png" id="fblogin" /><form id="fbidform" action="guardafbid.php" method="post"><input type="hidden" id="fbid" /></form></li>    
+</div>
     </ul>
     <ul class="right">
       <li><a href="<?=$ruta;?>logout.php">Salir</a></li>

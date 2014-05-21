@@ -6,14 +6,14 @@
     $mysql = new DBMannager();      
     $mysql->connect();  
 
-    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno GROUP BY id_votado ORDER BY total DESC";   
+    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno GROUP BY id_votado ORDER BY total DESC";   
     $mysql->execute($query);
     $faltantes=0;
     $masvotados=$mysql->count();
     $masVotados=array();  
     if($masvotados > 0){
         while($row=$mysql->getRow()){
-            array_push($masVotados, array("sexo" => $row['sexo'], "total" => $row['total'], "nombre" => $row['nombre'], "apellido_paterno" => $row['apellido_paterno'], "apellido_materno" => $row['apellido_materno']));
+            array_push($masVotados, array("sexo" => $row['sexo'], "total" => $row['total'], "nombre" => $row['nombre'], "apellido_paterno" => $row['apellido_paterno'], "apellido_materno" => $row['apellido_materno'], "fbid" => $row['fbid']));
         }
         
     }
@@ -41,7 +41,17 @@
             }
     ?>
         <div class="ganador">
+            <?php 
+                if(isset($votante['fbid']) && strlen($votante['fbid']) > 4){
+            ?>
+                <img src="https://graph.facebook.com/v2.0/<?=$votante['fbid'];?>/picture?type=square" alt="" />
+            <?php
+                }else{
+            ?>
             <img src="imagenes/facebook.jpg" alt="" />
+            <?php
+                }
+            ?>
             <span class="nombre"><?=$nombre_completo;?></span>
         </div>
     <?php
