@@ -12,10 +12,29 @@ if(isset($_POST['email'])){
 	$mysql->execute($query,array($email));			
 	if($mysql->count() > 0){
 		$row=$mysql->getRow();
-		$completado=1;
-		//Enviar correo
-		//This should be done in your php.ini, but this is how to do it if you don't have access to that
-		date_default_timezone_set('America/Mazatlan');
+
+		/*** Verifica cuantas veces ha solicitado la contraseña hoy **/
+		$query="SELECT id_alumno, count(*) as solicitudes FROM recuperar_cuentas WHERE id_alumno=? GROUP BY DATE(fecha_registro)";	
+		$mysql->execute($query,array($row['id_alumno']));
+
+		if($solicitudes=$mysql->getRow()){
+			$solicitudes = $solicitudes['solicitudes'];
+		}else{
+			$solicitudes = 0;
+		}
+		if($solicitudes >= 2){
+
+		}else{
+
+			/*** Crea el link para recuperar cuenta **/
+			$key=hash('sha256', $row['id_alumno'].date());
+			$query="INSERT INTO recuperar_cuentas(id_alumno,key) VALUES (?,?)";	
+			$mysql->execute($query,array($row['id_alumno'],$key));			
+
+			$completado=1;
+			//Enviar correo
+			//This should be done in your php.ini, but this is how to do it if you don't have access to that
+			date_default_timezone_set('America/Mazatlan');
 
 		//if(valida_email($email)){
 			require 'php/PHPMailer/PHPMailerAutoload.php';
@@ -44,10 +63,10 @@ if(isset($_POST['email'])){
 			$mail->Subject = 'Recuperar contraseña del Sistema de Alumnos FIMAZ';
 
 			//Read an HTML message body from an external file, convert referenced images to embedded,							
-			$html="Para recuperar tu contraseña debes hacer click en el siguiente enlace o copiarlo en tu navegador:";
-			$html.="<br /><br />";
-			$html.="Usuario: ".$row['usuario'];
-			$html.="link";
+			$html="Usuario: ".$row['usuario']."<br/><br/>";
+			$html.="Para recuperar tu contraseña debes hacer click en el siguiente enlace o copiarlo en tu navegador:";
+			$html.="<br /><br />";			
+			$html.="<a href='https://fimazvotaciones.azurewebsites.net/recuperar_password.php?k=".$key."'>https://fimazvotaciones.azurewebsites.net/recuperar_password.php?k=".$key."</a>";
 			$mail->msgHTML($html);
 			//Replace the plain text body with one created manually
 			//$mail->AltBody = 'This is a plain-text message body';
@@ -62,11 +81,7 @@ if(isset($_POST['email'])){
 			} else {
 				$completado=1;
 			}		
-		/*}else{
-				$_SESSION['mensaje_tipo']='error';
-				$_SESSION['mensaje']="Haz quedado registrado correctamente en las actividades de la Semana Nacional de Ciencia y Tecnología. Sin embargo no hemos podido enviarte un correo electrónico a la dirección proporcionada: ".$email."  , Si tu correo electrónico no es correcto, te agradeceríamos que lo actualizaras haciendo clic en el menú Mi Cuenta > Actualizar Datos.";								
-		}*/
-	
+		}
 	}else{
 		$error=1;
 		$mensaje_error="Correo electrónico invalido.";
