@@ -22,7 +22,7 @@
            <button type="submit">Entrar</button>
          </fieldset>
 
-         <a href="recuperar_password.php">¿Olvidaste tu contrseña?</a>
+         <a href="recuperar_password.php">¿Olvidaste tu contraseña?</a>
      </form>
 </div>
 <?php include("piepagina.php"); ?>
