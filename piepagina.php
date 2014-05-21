@@ -11,7 +11,7 @@
     <script>
       $(document).foundation();
       $(document).ready(function(){
-        if($('.alert-hide').length){$('.alert-hide').fadeIn(1000);setTimeout(function(){$('.alert-hide').fadeOut(1000);},3000);}
+        if($('.alert-hide').length){$('.alert-hide').fadeIn(3000);setTimeout(function(){$('.alert-hide').fadeOut(1000);},3000);}
       });
 
       var loginRef = new Firebase('https://fimazestudiantes.firebaseIO.com');

@@ -1,22 +1,32 @@
 <?php
-/**@include("../../check.php");**/
+@include("check.php");
 if(isset($_POST['accion'])){
 
 	$accion=$_POST['accion'];	
-	$id_usuario=$_SESSION['id_usuario'];	
-
-	require_once($rutaPHP."php/mysqlpdo.php");	
-	$mysql = new DBMannager();		
-	$mysql->connect();	
-	
+	$id_alumno=$_SESSION['id_alumno'];	
 	
 	if($accion=='votar'){		
+
 		$id=$_POST['id_alumno'];
-		//$query="UPDATE alumnos SET status=2,fecha_modificacion=NOW(),id_usuario_modificacion=? WHERE id_alumno=?";
-		//echo $query;
-		//$mysql->execute($query,array($id_usuario,$id));
-		$_SESSION['mensaje']="Tu voto se ha realizado satisfactoriamente.";	
-		//header('Location: modulo_historial_creditos.php');						
+		$query="SELECT nombre,apellido_paterno,apellido_materno,sexo FROM alumnos WHERE id_alumno=?";
+		$mysql->execute($query,array($id));
+
+		if($row=$mysql->getRow()){
+			$sexo=$row['sexo'];				
+			$query="SELECT * FROM votos WHERE id_alumno=? AND sexo=?";
+			$mysql->execute($query,array($id_alumno,$sexo));			
+			if($mysql->count()==0){
+				$query="INSERT votos(id_alumno, id_votado, sexo) VALUES (?,?,?)";
+				$mysql->execute($query,array($id_alumno,$id,$sexo));			
+				$nombre_completo=$row['nombre']." ".$row['apellido_paterno']." ".$row['apellido_materno'];				
+				$_SESSION['mensaje']="Tu voto para el candidato de sexo '".$sexo."' se ha realizado a '".$nombre_completo."'";
+			}else{
+				$_SESSION['error']="Ya haz realizado tu voto para el candidato de sexo '".$sexo."'";			
+			}
+
+		}else{
+			$_SESSION['mensaje']="ERROR......";		
+		}
 	}
 
 	//exit;

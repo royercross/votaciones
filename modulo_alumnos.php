@@ -1,5 +1,5 @@
 <?php require_once("check.php"); ?>
-<?php require_once("acciones_modulo_alumnos.php"); ?>    
+<?php require_once("acciones_modulo_alumnos.php"); ?>     
 <?php require_once("encabezado_interior.php"); ?>
 <?php require_once("menu.php"); ?>
 
@@ -10,11 +10,35 @@
       <?php /*include("sidebar.php");**/ ?>
     </section>
     -->
-    <section class="large-12 columns">
+    <section class="large-12 columns instrucciones">
+      <div class="alert-box info">      
+        Recuerda que solo puedes seleccionar un candido Masculino y Femenino.<br /><br />
       <?php
         require_once("php/mysqlpdo.php");  
         $mysql = new DBMannager();    
         $mysql->connect();    
+        $query="SELECT b.* FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno WHERE a.id_alumno=?";   
+        $mysql->execute($query,array($_SESSION['id_alumno']));
+        $cont=0;
+        if($mysql->count() > 0){    
+            while($row=$mysql->getRow()){
+              $nombre_completo=$row['nombre']." ".$row['apellido_paterno']." ".$row['apellido_materno'];
+      ?> 
+            <strong>Candidato <?=$row['sexo'];?>:</strong><?=$nombre_completo;?><br />
+      <?php
+        $cont++;
+          }
+        }else{
+      ?>
+        <strong>No haz seleccionado ningun candidato</strong>
+      <?php
+        }
+      ?>
+      </div>
+    </section>
+    <?php if($cont<2){ ?>}
+    <section class="large-12 columns">
+      <?php        
         $query="SELECT a.* FROM alumnos a WHERE a.status=1 AND (a.id_carrera=1 OR a.id_carrera=2) ORDER BY a.id_alumno";   
         $mysql->execute($query);      
         if($mysql->count() < 1){    
@@ -32,7 +56,13 @@
       <div class="contenido">
         <?php if(isset($_SESSION['mensaje'])){?>
         <div class="alert-box success alert-hide"><?=$_SESSION['mensaje'];?></div>       
-        <?php unset($_SESSION['mensaje']);} ?>              
+        <?php unset($_SESSION['mensaje']);}else
+          if(isset($_SESSION['error'])){
+        ?>
+        <div class="alert-box alert alert-hide"><?=$_SESSION['error'];?></div>       
+        <?php
+          }
+         ?>              
       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="tabla">    
             <thead>
                 <tr>                      
@@ -61,6 +91,7 @@
       </div>    
       <?php } ?>            
     </section>
+    <?php } ?>
   </section>
 
   <div id="modal-wrapper" class="reveal-modal" data-reveal></div>

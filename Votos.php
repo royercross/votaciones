@@ -46,19 +46,18 @@ Class Votos extends FIMAZConfig{
     }
 
     return false;
-
   }
 
-  function checarVoto($id_votante,$sexo){
+  function checarVoto($id_votante,$sexo){    
     $results = $this->db->get_results("SELECT count(*) as cuenta FROM votos WHERE id_votante='$id_votante' AND sexo='$sexo'");
-    
-    if($results['0']->cuenta>=1) return true;
-    
+
+    if($results['0']->cuenta>=1) return true;  
     return false;
   }
 
   function sumarVoto($id_votante,$id_votante,$sexo){
     $results = $this->db->query("INSERT INTO votos (id_votante,id_votado,sexo) VALUES ('$id_votante', '$id_votado', '$sexo');");
+
     return ($results);
   }
 
@@ -68,7 +67,7 @@ Class Votos extends FIMAZConfig{
   }
 
   function masVotados(){
-    $results = $this->db->get_results("SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno FROM votos a INNER JOIN alumnos b ON a.id_votante=b.id_alumno GROUP BY id_votado ORDER BY total DESC");
+    $results = $this->db->get_results("SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno GROUP BY id_votado ORDER BY total DESC");
     return ($results);
   }
   
