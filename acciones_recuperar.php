@@ -81,10 +81,42 @@ if(isset($_POST['email'])){
 				$mensaje_error="Error al enviar el correo, intenta de nuevo mas tarde";
 			} else {
 				$completado=1;
+				$mensaje_completado="Se ha enviado un correo con las instrucciones para recuperación a la dirección: ".$email;
 			}		
 		}
 	}else{
 		$error=1;
 		$mensaje_error="Correo electrónico invalido.";
 	}
+}
+if(isset($_POST['pass1']) && isset($_POST['pass2']) && isset($_POST['rkey'])){
+	require_once("php/mysqlpdo.php");	
+	$mysql = new DBMannager();		
+	$mysql->connect();	
+	
+	$cambios=0;
+	$pass1=$_POST['pass1'];
+	$pass2=$_POST['pass2'];
+	$rkey=$_POST['rkey'];
+	if($pass1 != $pass2){
+		$error=1;
+		$mensaje_error="Las contraseñas no coinciden.";
+	}else{
+		$query="SELECT * FROM recuperar_cuentas WHERE rkey=? and status=1";
+		$mysql->execute($query,array($rkey));			
+		if($mysql->count() > 0){
+			$row=$mysql->getRow();
+			$id_alumno=$row['id_alumno'];			
+			$query="UPDATE recuperar_cuentas SET status=2 WHERE rkey=?";
+			$mysql->execute($query,array($rkey));			
+			$query="UPDATE alumnos SET password=? WHERE id_alumno=?";
+			$mysql->execute($query,array(hash('sha256',$pass1),$id_alumno));			
+			$completado=1;
+			$mensaje_completado="Tu contraseña se ha cambiado correctamente. <br/> Haz click <a href='index.php'>aquí</a> para entrar.";
+		}else{
+			$error=1;
+		}
+
+	}
+	
 }
