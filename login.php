@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "FIMAZConfig.php";
 include_once "Votos.php";
 
@@ -15,8 +16,7 @@ if(isset($_POST['user'])){
 
 		if($votos->login($input['user'], $input['pass'])){
 			$me = $votos->me();
-			//print_r($me);			
-			session_start();
+			//print_r($me);						
 			$_SESSION['botonfacebook']=true;	
 			if(strlen($me->fbid) > 3){
 				$_SESSION['botonfacebook']=false;	
