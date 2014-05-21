@@ -112,7 +112,7 @@ if(isset($_POST['pass1']) && isset($_POST['pass2']) && isset($_POST['rkey'])){
 			$query="UPDATE alumnos SET password=? WHERE id_alumno=?";
 			$mysql->execute($query,array(hash('sha256',$pass1),$id_alumno));			
 			$completado=1;
-			$mensaje_completado="Tu contraseña se ha cambiado correctamente. <br/> Haz click <a href='index.php'>aquí</a> para entrar.";
+			$mensaje_completado="Tu contraseña se ha cambiado correctamente. Haz clic en regresar al inicio.";
 		}else{
 			$error=1;
 		}
