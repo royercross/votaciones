@@ -12,4 +12,4 @@
     <link rel="stylesheet" href="<?=$ruta;?>css/print.css" media="print"/>
     <script src="<?=$ruta;?>lib/modernizr.js"></script>
   </head>
-  <body>
+  <body class="bginner">
