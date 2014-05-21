@@ -31,7 +31,7 @@ header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 .votantes-wrapper{padding-top: 30px;}
 .ganador{width: 49%;display: inline-block;margin-bottom: 20px;}
 .ganador img{width: 200px;display: block;vertical-align: top;margin: 0 auto;}
-.ganador .nombre{font-size: 15px;text-align: center;display: block;vertical-align: top;font-weight: bold;margin: 10px 0px;}
+.ganador .nombre{font-size: 15px;text-align: center;display: block;vertical-align: top;font-weight: bold;margin: 10px 0px;font-family: 'Open Sans',Arial !important;}
 
 @media only screen and (max-width: 40em) {
     .logo{background:url(style/logo2.jpg); width: 80px;height: 113px;display: block;text-indent: -9999px;background-size: cover;margin-top: 50px;}
@@ -51,6 +51,6 @@ header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 #fblogin{margin-top: 5px;cursor:pointer;}
 
 
-.titulo{text-align: center;display: block;}
-.titulo-l{display: block;width: 49%;display: inline-block;vertical-align: top;}
-.titulo-r{display: block;width: 49%;display: inline-block;vertical-align: top;}
+.titulo{text-align: center;display: block;color:white;font-family: 'Open Sans',Arial !important;}
+.titulo-l{display: block;width: 49%;display: inline-block;vertical-align: top;text-align: center;color:white;font-size: 2em;font-family: 'Open Sans',Arial !important;}
+.titulo-r{display: block;width: 49%;display: inline-block;vertical-align: top;text-align: center;color:white;font-size: 2em;font-family: 'Open Sans',Arial !important;}
