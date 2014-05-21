@@ -34,6 +34,11 @@
         }
       });
 
+     $('#btnLogout').bind('click', function(){
+      auth.logout();
+      window.location.href = 'https://fimazvotaciones.azurewebsites.net/logout.php';
+     });
+
      $('#fblogin').bind('click', function(){
         auth.login('facebook', {
           rememberMe: true
