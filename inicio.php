@@ -30,7 +30,7 @@
 <?php include("encabezado_interior.php"); ?>
 <?php include("menu.php"); ?>
 <section class="columns votantes-wrapper">
-    <h2 class="titulo">Los mas votados</h2>
+    <h2 class="titulo">Los más votados</h2>
     <?php
         $cont=0;
         foreach($masVotados as $votante){
