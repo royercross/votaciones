@@ -22,7 +22,8 @@ Class Votos extends FIMAZConfig{
   }
 
   function guardaFB($fbid){
-
+    print_r($_SESSION);
+    print_R($fbid);
     if(isset($_SESSION['id_alumno']) && $_SESSION['id_alumno']>=1){
       $id_alumno = $_SESSION['id_alumno'];
       $results = $this->db->get_results("SELECT * FROM alumnos WHERE id_alumno='$id_alumno'");
