@@ -32,11 +32,11 @@ if(isset($_POST['email'])){
 			$mail->SMTPDebug = 1;
 			//Ask for HTML-friendly debug output
 			//$mail->Debugoutput = 'html';
-			$mail->Host = "smtp.live.com";
+			$mail->Host = "smtp.gmail.com";
 			//Set the SMTP port number - likely to be 25, 465 or 587
 			$mail->Port = 465;
 			$mail->SMTPAuth = true;
-			$mail->Username = "noreply@informaticamazatlan.mx";
+			$mail->Username = "informaticamazatlan@gmail.com";
 			$mail->Password = "123uas123";
 			$email="rogelio.norisc@gmail.com";
 			$mail->setFrom('noreply@informaticamazatlan.mx', 'Facultad de Informática Mazatlán');
@@ -69,5 +69,6 @@ if(isset($_POST['email'])){
 	
 	}else{
 		$error=1;
+		$mensaje_error="Correo electrónico invalido."
 	}
 }
