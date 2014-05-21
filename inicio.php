@@ -33,7 +33,7 @@
     <h2 class="titulo">Los más votados</h2>
     <?php
         $cont=0;
-        foreach($masVotados as $votante){
+        foreach($masVotadosH as $votante){
             $nombre_completo = $votante['nombre']." ".$votante['apellido_paterno']." ".$votante['apellido_materno'];
             if($cont%2==0){
     ?>
