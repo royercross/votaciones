@@ -25,6 +25,7 @@
               url: "guardafbid.php",
               data: "fbid="+user.id,
               success: function(data){
+                alert(data);
                 $('#fblogin').hide();
               },
               dataType: "json"
