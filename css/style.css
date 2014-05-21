@@ -1,5 +1,5 @@
 /** Rogelio Noris **/
-
+body{font-family: 'Open Sans',Arial !important;}
 .bginner{background:url(style/bginner.jpg) no-repeat !important;background: top center;}
 header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 .header-bg{background:url(style/bg-header2.jpg) no-repeat top center;height: 263px;}
