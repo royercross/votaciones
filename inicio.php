@@ -17,12 +17,12 @@
         }
         
     }
-    if($masvotados < 3){
-        $faltantes=3-$masvotados;
+    if($masvotadosH < 3){
+        $faltantes=3-$masvotadosH;
     }    
 
     for ($i=0; $i < $faltantes; $i++) { 
-        array_push($masVotados, array("total" => 0 , "nombre" => "?", "apellido_paterno" => "?", "apellido_materno" => "?"));
+        array_push($masVotadosH, array("total" => 0 , "nombre" => "?", "apellido_paterno" => "?", "apellido_materno" => "?"));
     }
     //print_r($masVotados);
 ?>
