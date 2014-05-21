@@ -69,6 +69,6 @@ if(isset($_POST['email'])){
 	
 	}else{
 		$error=1;
-		$mensaje_error="Correo electrónico invalido."
+		$mensaje_error="Correo electrónico invalido.";
 	}
 }
