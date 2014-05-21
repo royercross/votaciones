@@ -58,7 +58,7 @@ if(isset($_POST['email'])){
 			$mail->SMTPAuth = true;
 			$mail->Username = "informaticamazatlan@gmail.com";
 			$mail->Password = "uas123uas";
-			$email="rogelio.norisc@gmail.com";
+			//$email="rogelio.norisc@gmail.com";
 			$mail->setFrom('noreply@informaticamazatlan.mx', 'Facultad de Informática Mazatlán');
 			$mail->addAddress($email, $row['nombre'].' '.$row['apellido_paterno']);
 			$mail->Subject = 'Recuperar contraseña del Sistema de Alumnos FIMAZ';
@@ -86,7 +86,7 @@ if(isset($_POST['email'])){
 		}
 	}else{
 		$error=1;
-		$mensaje_error="Correo electrónico invalido.";
+		$mensaje_error="Tu correo electronico, no esta registrado, acude con Lety.";
 	}
 }
 if(isset($_POST['pass1']) && isset($_POST['pass2']) && isset($_POST['rkey'])){
