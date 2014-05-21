@@ -56,7 +56,7 @@ if(isset($_POST['email'])){
 			
 			//send the message, check for errors
 			if (!$mail->send()) {
-				/**echo "Mailer Error: " . $mail->ErrorInfo;**/
+				echo "Mailer Error: " . $mail->ErrorInfo;
 				$error=1;
 				$mensaje_error="Error al enviar el correo, intenta de nuevo mas tarde";
 			} else {
