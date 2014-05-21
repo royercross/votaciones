@@ -48,3 +48,6 @@ header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 .instrucciones{margin-top: 20px;}
 
 #fblogin{margin-top: 5px;cursor:pointer;}
+
+
+.titulo{text-align: center;display: block;}
