@@ -119,7 +119,7 @@
 	});
 
   function votar(id){    
-    if(confirm("¿Seguro que deseas votar por ??? ?")){    
+    if(confirm("¿Seguro que deseas votar por esta persona?")){    
         $('#form'+id).submit();
     }   
   }
