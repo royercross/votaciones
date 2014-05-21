@@ -8,8 +8,7 @@ Class Votos extends FIMAZConfig{
 
   function login($user,$pass){    
     $pass = hash('sha256', $pass);
-    $results = $this->db->get_results("SELECT * FROM alumnos WHERE usuario='$user' AND password='$pass' AND status='1'");    
-    print_r($results);
+    $results = $this->db->get_results("SELECT * FROM alumnos WHERE usuario='$user' AND password='$pass' AND status='1'");        
     if(isset($results['0']->id_alumno)){
     
       $_SESSION['id_alumno'] = $results['0']->id_alumno;
@@ -23,12 +22,9 @@ Class Votos extends FIMAZConfig{
   }
 
   function guardaFB($fbid){
-    print_r($_SESSION);
-    print_R($fbid);
     if(isset($_SESSION['id_alumno']) && $_SESSION['id_alumno']>=1){
       $id_alumno = $_SESSION['id_alumno'];
       $results = $this->db->get_results("SELECT * FROM alumnos WHERE id_alumno='$id_alumno'");
-      print_r($results);
       $results = $results['0'];
       if($results->fbid==0){
         $this->db->query("UPDATE alumnos SET fbid='$fbid' WHERE id_alumno='$id_alumno';");
@@ -44,8 +40,8 @@ Class Votos extends FIMAZConfig{
 
   function me(){
 
-    if(isset($_SESSION['me']['id']) && $_SESSION['me']['id']>=1){
-      $id_alumno = $_SESSION['me']['id'];
+    if(isset($_SESSION['id_alumno']) && $_SESSION['id_alumno']>=1){
+      $id_alumno = $_SESSION['id_alumno'];
 
       $results = $this->db->get_results("SELECT * FROM alumnos WHERE id_alumno='$id_alumno' AND status='1'");
       return $results['0'];
