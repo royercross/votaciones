@@ -1,5 +1,7 @@
 <?php
 session_start();
+if(!isset($_SESSION["REMOTE_IP"]) && $_SESSION["REMOTE_IP"]==$_SERVER['REMOTE_ADDR'] || $_SESSION["TOKEN"]=="38f24e6d23cd0ba120f905151e91c20769f0c9e5149c111591f666f1503212e6")
+	header("Location inicio.php");
 include_once "FIMAZConfig.php";
 include_once "Votos.php";
 

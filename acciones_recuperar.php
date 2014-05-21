@@ -52,14 +52,14 @@ if(isset($_POST['email'])){
 			//$mail->SMTPDebug = 1;
 			//Ask for HTML-friendly debug output
 			//$mail->Debugoutput = 'html';
-			$mail->Host = "smtp.gmail.com";
+			$mail->Host = "smtp.sendgrid.com";
 			//Set the SMTP port number - likely to be 25, 465 or 587
 			$mail->Port = 465;
 			$mail->SMTPAuth = true;
-			$mail->Username = "informaticamazatlan@gmail.com";
+			$mail->Username = "aramirez92";
 			$mail->Password = "uas123uas";
 			//$email="rogelio.norisc@gmail.com";
-			$mail->setFrom('noreply@informaticamazatlan.mx', 'Facultad de Informática Mazatlán');
+			$mail->setFrom('noreply@dahuster.com', 'Facultad de Informática Mazatlán');
 			$mail->addAddress($email, $row['nombre'].' '.$row['apellido_paterno']);
 			$mail->Subject = 'Recuperar contraseña del Sistema de Alumnos FIMAZ';
 
