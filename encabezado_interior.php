@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?=$ruta;?>css/dataTables.foundation.css" />
     <link rel="stylesheet" href="<?=$ruta;?>css/style.css" />
     <link rel="stylesheet" href="<?=$ruta;?>css/print.css" media="print"/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <script src="<?=$ruta;?>lib/modernizr.js"></script>
 
   </head>
