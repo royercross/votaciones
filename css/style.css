@@ -52,3 +52,5 @@ header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 
 
 .titulo{text-align: center;display: block;}
+.titulo-l{display: block;width: 49%;display: inline-block;vertical-align: top;}
+.titulo-r{display: block;width: 49%;display: inline-block;vertical-align: top;}
