@@ -23,7 +23,7 @@
             $.ajax({
               type: "POST",
               url: "guardafbid.php",
-              data: "id="+user.id,
+              data: "fbid="+user.id,
               success: function(data){
                 $('#fblogin').hide();
               },
