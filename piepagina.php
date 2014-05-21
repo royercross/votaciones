@@ -20,8 +20,6 @@
             console.log(error);
             aler('Ocurrio un error inesperado.');
         }else if(user) {
-            $('#fbid').val(user.id);
-            console.log(user.id);
             $.ajax({
               type: "POST",
               url: "guardafbid.php",
