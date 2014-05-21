@@ -7,10 +7,10 @@ Class Votos extends FIMAZConfig{
   }
 
   function login($user,$pass){
-
+    echo "ASDASDASDASD";
     $pass = hash('sha256', $pass);
     $results = $this->db->get_results("SELECT * FROM alumnos WHERE usuario='$user' AND password='$pass' AND status='1'");
-    
+    echo "asdasdas";
     if(isset($results['0']->id_alumno)){
     
       $_SESSION['me']['id'] = $results['0']->id_alumno;

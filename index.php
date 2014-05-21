@@ -1,5 +1,5 @@
 <?php $error=false; ?>
-<?php include("login.php") ?>
+<?php include("login.php"); ?>
 <?php include("encabezado.php"); ?>
 <div class="login panel">	
     <form class="" method="post" action="" data-abide>
@@ -19,7 +19,7 @@
             <input name="pass" type="password" class="" placeholder="contraseña" required>
             <small class="error">La contraseña es requerida.</small>
           </div>
-           <button type="submit">Submit</button>
+           <button type="submit">Entrar</button>
          </fieldset>
      </form>
 </div>
