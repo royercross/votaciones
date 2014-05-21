@@ -6,19 +6,19 @@
     $mysql = new DBMannager();      
     $mysql->connect();  
 
-    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno GROUP BY id_votado ORDER BY total DESC";   
+    $query="SELECT count(id_voto) as total, b.nombre, b.apellido_paterno, b.apellido_materno,b.sexo,b.fbid FROM votos a INNER JOIN alumnos b ON a.id_votado=b.id_alumno WHERE b.sexo='Masculino' GROUP BY id_votado ORDER BY total DESC";   
     $mysql->execute($query);
     $faltantes=0;
-    $masvotados=$mysql->count();
-    $masVotados=array();  
+    $masvotadosH=$mysql->count();
+    $masVotadosH=array();  
     if($masvotados > 0){
         while($row=$mysql->getRow()){
-            array_push($masVotados, array("sexo" => $row['sexo'], "total" => $row['total'], "nombre" => $row['nombre'], "apellido_paterno" => $row['apellido_paterno'], "apellido_materno" => $row['apellido_materno'], "fbid" => $row['fbid']));
+            array_push($masVotadosH, array("sexo" => $row['sexo'], "total" => $row['total'], "nombre" => $row['nombre'], "apellido_paterno" => $row['apellido_paterno'], "apellido_materno" => $row['apellido_materno'], "fbid" => $row['fbid']));
         }
         
     }
-    if($masvotados < 6){
-        $faltantes=6-$masvotados;
+    if($masvotados < 3){
+        $faltantes=3-$masvotados;
     }    
 
     for ($i=0; $i < $faltantes; $i++) { 
