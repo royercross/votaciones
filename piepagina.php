@@ -28,11 +28,9 @@
               data: "id="+user.id,
               success: function(data){
                 $('#fblogin').hide();
-                console.log('Lo envio.');
               },
               dataType: "json"
             });
-    //      $('#fbid').val('https://graph.facebook.com/v2.0/'+user.id+'/picture?type=square');
         }else{
             console.log('El usuario no esta iniciado');
         }
