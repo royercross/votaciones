@@ -36,7 +36,7 @@
       ?>
       </div>
     </section>
-    <?php if($cont<2){ ?>}
+    <?php if($cont<2){ ?>
     <section class="large-12 columns">
       <?php        
         $query="SELECT a.* FROM alumnos a WHERE a.status=1 AND (a.id_carrera=1 OR a.id_carrera=2) ORDER BY a.id_alumno";   
@@ -56,13 +56,14 @@
       <div class="contenido">
         <?php if(isset($_SESSION['mensaje'])){?>
         <div class="alert-box success alert-hide"><?=$_SESSION['mensaje'];?></div>       
-        <?php unset($_SESSION['mensaje']);}else
+        <?php unset($_SESSION['mensaje']);}
+          else
           if(isset($_SESSION['error'])){
         ?>
         <div class="alert-box alert alert-hide"><?=$_SESSION['error'];?></div>       
         <?php
           }
-         ?>              
+        ?>              
       <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="tabla">    
             <thead>
                 <tr>                      
@@ -103,7 +104,8 @@
 <script src="<?=$ruta;?>lib/foundation.alert.js"></script>
 <script src="<?=$ruta;?>lib/jquery.dataTables.min.js"></script>
 <script src="<?=$ruta;?>lib/dataTables.foundation.js"></script>
-
+<script type="text/javascript" src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
+<script type="text/javascript" src="https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js"></script>
     
 <script>
 	$(document).ready(function(){

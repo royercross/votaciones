@@ -6,7 +6,9 @@ if(isset($_POST['accion'])){
 	$id_alumno=$_SESSION['id_alumno'];	
 	
 	if($accion=='votar'){		
-
+	    require_once("php/mysqlpdo.php");   
+	    $mysql = new DBMannager();      
+	    $mysql->connect();  
 		$id=$_POST['id_alumno'];
 		$query="SELECT nombre,apellido_paterno,apellido_materno,sexo FROM alumnos WHERE id_alumno=?";
 		$mysql->execute($query,array($id));
