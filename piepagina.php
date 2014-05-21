@@ -20,8 +20,6 @@
             console.log(error);
             aler('Ocurrio un error inesperado.');
         }else if(user) {
-
-
             $('#fbid').val(user.id);
             $("#fbidform").submit();
             $('#fblogin').hide();
