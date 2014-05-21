@@ -26,6 +26,7 @@ Class Votos extends FIMAZConfig{
     if(isset($_SESSION['id_alumno']) && $_SESSION['id_alumno']>=1){
       $results = $this->db->get_results("SELECT fbid FROM alumnos WHERE id_alumno='$id_alumno'");
       $results = $results['0'];
+      ECHO $results->fbid;
       if($results->fbid==0){
         $id_alumno = $_SESSION['id_alumno'];
         $this->db->query("UPDATE alumnos SET fbid='$fbid' WHERE id_alumno='$id_alumno';");
