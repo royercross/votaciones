@@ -6,7 +6,7 @@
         <a href="index.php">Regresar al inicio</a>
         <?php if($error==1){ ?>
           <div class="alert-box alert"><?=$mensaje_error;?><a href="#" class="close">&times;</a></div>
-        <?php } ?>  
+        <?php }else ?>  
         <?php if($completado==1){ ?>
           <div class="alert-box sucess">Se ha enviado un correo con las instrucciones para recuperación a la dirección: <?=$email;?><a href="#" class="close">&times;</a></div>
         <?php }else{ ?>             

@@ -29,7 +29,7 @@ if(isset($_POST['email'])){
 			// 0 = off (for production use)
 			// 1 = client messages
 			// 2 = client and server messages
-			$mail->SMTPDebug = 1;
+			//$mail->SMTPDebug = 1;
 			//Ask for HTML-friendly debug output
 			//$mail->Debugoutput = 'html';
 			$mail->Host = "smtp.gmail.com";
@@ -37,7 +37,7 @@ if(isset($_POST['email'])){
 			$mail->Port = 465;
 			$mail->SMTPAuth = true;
 			$mail->Username = "informaticamazatlan@gmail.com";
-			$mail->Password = "123uas123";
+			$mail->Password = "uas123uas";
 			$email="rogelio.norisc@gmail.com";
 			$mail->setFrom('noreply@informaticamazatlan.mx', 'Facultad de Informática Mazatlán');
 			$mail->addAddress($email, $nombre.' '.$apellido_paterno);
