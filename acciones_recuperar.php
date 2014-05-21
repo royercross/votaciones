@@ -23,13 +23,14 @@ if(isset($_POST['email'])){
 			$solicitudes = 0;
 		}
 		if($solicitudes >= 2){
-
+			$error=1;
+			$mensaje_error="Haz excedido el numero de recuperaciones diarias, intenta de nuevo mañana.";
 		}else{
 
 			/*** Crea el link para recuperar cuenta **/
-			$key=hash('sha256', $row['id_alumno'].date());
-			$query="INSERT INTO recuperar_cuentas(id_alumno,key) VALUES (?,?)";	
-			$mysql->execute($query,array($row['id_alumno'],$key));			
+			$key=hash('sha256', $row['id_alumno'].time());
+			$query="INSERT INTO recuperar_cuentas (id_alumno, rkey) VALUES (?,?)";	
+			$mysql->execute($query,array($row['id_alumno'], $key));			
 
 			$completado=1;
 			//Enviar correo
@@ -59,11 +60,11 @@ if(isset($_POST['email'])){
 			$mail->Password = "uas123uas";
 			$email="rogelio.norisc@gmail.com";
 			$mail->setFrom('noreply@informaticamazatlan.mx', 'Facultad de Informática Mazatlán');
-			$mail->addAddress($email, $nombre.' '.$apellido_paterno);
+			$mail->addAddress($email, $row['nombre'].' '.$row['apellido_paterno']);
 			$mail->Subject = 'Recuperar contraseña del Sistema de Alumnos FIMAZ';
 
 			//Read an HTML message body from an external file, convert referenced images to embedded,							
-			$html="Usuario: ".$row['usuario']."<br/><br/>";
+			$html="<strong>Usuario:</strong> ".$row['usuario']."<br/><br/>";
 			$html.="Para recuperar tu contraseña debes hacer click en el siguiente enlace o copiarlo en tu navegador:";
 			$html.="<br /><br />";			
 			$html.="<a href='https://fimazvotaciones.azurewebsites.net/recuperar_password.php?k=".$key."'>https://fimazvotaciones.azurewebsites.net/recuperar_password.php?k=".$key."</a>";
