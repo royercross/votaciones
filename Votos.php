@@ -11,7 +11,7 @@ Class Votos extends FIMAZConfig{
     $results = $this->db->get_results("SELECT * FROM alumnos WHERE usuario='$user' AND password='$pass' AND status='1'");    
     if(isset($results['0']->id_alumno)){
     
-      $_SESSION['me']['id'] = $results['0']->id_alumno;
+      $_SESSION['id_alumno'] = $results['0']->id_alumno;
       return true;
     
     }else{      
@@ -22,8 +22,8 @@ Class Votos extends FIMAZConfig{
   }
 
   function guardaFB($fbid){
-    if(isset($_SESSION['me']['id']) && $_SESSION['me']['id']>=1){
-      $id_alumno = $_SESSION['me']['id'];
+    if(isset($_SESSION['id_alumno']) && $_SESSION['id_alumno']>=1){
+      $id_alumno = $_SESSION['id_alumno'];
       $this->db->query("UPDATE alumnos SET fbid='$fbid' WHERE id_alumno='$id_alumno';");
       return true;
     }
