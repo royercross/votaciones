@@ -45,7 +45,7 @@
             <?php 
                 if(isset($votante['fbid']) && strlen($votante['fbid']) > 4){
             ?>
-                <img src="https://graph.facebook.com/v2.0/<?=$votante['fbid'];?>/picture?type=square" alt="" />
+                <img src="https://graph.facebook.com/v2.0/<?=$votante['fbid'];?>/picture?type=large" alt="" />
             <?php
                 }else{
             ?>
