@@ -1,4 +1,4 @@
-    
+
     <?php if(!isset($loadScripts) || $loadScripts){ ?>
     <script src="<?=$ruta;?>lib/jquery.js"></script>
     <script type="text/javascript" src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
@@ -23,6 +23,7 @@
             $('#fbid').val(user.id);
             $("#fbidform").submit();
             $('#fblogin').hide();
+            console.log(user.id);
     //      $('#fbid').val('https://graph.facebook.com/v2.0/'+user.id+'/picture?type=square');
         }else{
             console.log('El usuario no esta iniciado');
