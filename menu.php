@@ -8,8 +8,7 @@
   </ul>
   <section class="top-bar-section">
     <ul class="left">
-      <li><a href="<?=$ruta;?>inicio.php">Inicio</a></li>    
-      <li><a href="<?=$ruta;?>modulo_alumnos.php">Votar</a></li>                  
+      <li><a href="<?=$ruta;?>index.php">Inicio</a></li>    
       <?php if($_SESSION['botonfacebook']){ ?><li><img src="imagenes/fblogin.png" id="fblogin" /></li><?php } ?>
     </ul>
     <ul class="right">

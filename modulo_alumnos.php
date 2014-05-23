@@ -1,3 +1,4 @@
+<?php die(); ?>
 <?php require_once("check.php"); ?>
 <?php require_once("acciones_modulo_alumnos.php"); ?>     
 <?php require_once("encabezado_interior.php"); ?>

@@ -1,6 +1,5 @@
 <?php 
     $error=false; 
-    include_once "check.php";
 
     require_once("php/mysqlpdo.php");   
     $mysql = new DBMannager();      
