@@ -49,7 +49,7 @@
 <?php include("menu.php"); ?>
 <section class="columns votantes-wrapper">
         <section class="large-12 rows lugares">
-            <h2 class="titulo">Los más votados</h2>            
+            <h2 class="titulo">FINALISTAS</h2>            
         </section>
         <section class="large-12 rows lugares">
             <h2 class="titulo-l">Hombres</h2>            

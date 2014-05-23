@@ -11,8 +11,6 @@
       <li><a href="<?=$ruta;?>index.php">Inicio</a></li>    
       <?php if($_SESSION['botonfacebook']){ ?><li><img src="imagenes/fblogin.png" id="fblogin" /></li><?php } ?>
     </ul>
-    <ul class="right">
-      <li><a href="#" id="btnLogout">Salir</a></li>
-    </ul>
+
   </section>
 </div>
