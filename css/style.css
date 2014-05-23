@@ -30,7 +30,7 @@ header{background:url(style/bg.jpg) repeat-x;height: 263px;}
 
 .votantes-wrapper{padding-top: 30px;}
 .ganador{width: 49%;display: inline-block;margin-bottom: 20px;}
-.ganador img{width: 200px;display: block;vertical-align: top;margin: 0 auto;}
+.ganador img{width: 100px;display: block;vertical-align: top;margin: 0 auto;}
 .ganador .nombre{font-size: 15px;text-align: center;display: block;vertical-align: top;font-weight: bold;margin: 10px 0px;font-family: 'Open Sans',Arial !important;color:white;}
 
 @media only screen and (max-width: 40em) {
